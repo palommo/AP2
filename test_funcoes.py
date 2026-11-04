@@ -40,10 +40,8 @@ def test_frase_varias_palavras():
 def test_frase_uma_palavra():
     assert inverter_palavras("Python") == "Python"
 
-
 def test_frase_vazia():
     assert inverter_palavras("") == ""
-
 
 def test_frase_espacos_extras():
     assert inverter_palavras("  Python   é   legal  ") == "legal é Python"
@@ -53,40 +51,26 @@ def test_frase_numeros_e_letras():
     assert inverter_palavras("teste 123 abc 456") == "456 abc 123 teste"
 
 
-# ---------------------------------------------------------------------------
 # Exercício 3
-# ---------------------------------------------------------------------------
-
-
 def test_documento_11_digitos():
     assert validar_documento("12345678900") is True
-
 
 def test_documento_formatado():
     assert validar_documento("123.456.789-00") is True
 
-
 def test_documento_menos_de_11_digitos():
     assert validar_documento("1234567890") is False
-
 
 def test_documento_mais_de_11_digitos():
     assert validar_documento("123456789012") is False
 
-
 def test_documento_com_letras():
     assert validar_documento("1234567890a") is False
-
 
 def test_documento_vazio():
     assert validar_documento("") is False
 
-
-# ---------------------------------------------------------------------------
 # Exercício 4
-# ---------------------------------------------------------------------------
-
-
 def test_gerar_codigo_formato():
     assert re.fullmatch(r"USR-\d{4}", gerar_codigo())
 
@@ -131,11 +115,7 @@ def test_nomes_diferentes(mock_gerar, nome):
     )
 
 
-# ---------------------------------------------------------------------------
 # Exercício 5
-# ---------------------------------------------------------------------------
-
-
 @patch("funcoes.verificar_permissao")
 def test_usuario_com_permissao(mock_perm):
     mock_perm.return_value = True
@@ -172,11 +152,7 @@ def test_mock_dois_cenarios(mock_perm, permissao, esperado):
     assert acessar_sistema("qualquer") == esperado
 
 
-# ---------------------------------------------------------------------------
 # Exercício 6
-# ---------------------------------------------------------------------------
-
-
 @patch("funcoes.registrar_atendimento")
 @patch("funcoes.obter_proximo_cliente")
 def test_atendimento_realizado(mock_obter, mock_registrar):
